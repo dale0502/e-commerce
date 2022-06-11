@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::orderBy('created_at' , 'DESC')->get();
-        return view('product' => $products);
+        return view('web.index', ['products' => $products]);
     }
 
     /**
@@ -47,7 +47,17 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $products = [
+            [
+                'imageUrl' => asset('/images/cake01.jpg')
+            ],
+            [
+                'imageUrl' => asset('/images/cake02.jpg')
+            ],
+        ];
+
+        $product = $products[$id];
+        return view('product.show', ['product' => $product]);
     }
 
     /**
