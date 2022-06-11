@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'ProductController@index');
 Route::get('products/{id}', 'ProductController@show');
+
+
+//admin
+Route::get('/admin', 'Admin\ProductController@index')->name('admin.index');
+Route::get('/admin/create', 'Admin\ProductController@create')->name('create');
+Route::post('/admin', 'Admin\ProductController@store')->name('store');
+Route::get('/admin/edit/{id}', 'Admin\ProductController@edit')->name('edit');
+Route::put('/admin', 'Admin\ProductController@update')->name('update');
