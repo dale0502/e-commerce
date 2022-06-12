@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">商品列表</a>
+                <a class="nav-link" href="/">商品列表</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">聯絡我們</a>
