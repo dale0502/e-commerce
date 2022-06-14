@@ -10,25 +10,19 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="title">商品名稱</label>
-                    <input type="text" class="form-control is-invalid" id="title" name="title" required> 
+                    <input type="text" class="form-control" id="title" name="title"> 
                   </div>
                   <div class="form-group">
                     <label for="content">商品描述</label>
-                    <input type="text" class="form-control is-invalid" id="content" name="content" required>
+                    <input type="text" class="form-control" id="content" name="content">
                   </div>
                   <div class="form-group ">
                     <label for="price">價格</label>
-                    <input type="number" class="form-control is-invalid" id="price" name="price" required>
-                    <div class="invalid-feedback">
-                        請輸入數字
-                    </div>
+                    <input type="number" class="form-control" id="price" name="price">
                   </div>
                   <div class="form-group ">
                     <label for="price">數量</label>
-                    <input type="number" class="form-control is-invalid" id="price" name="quantity" required>
-                    <div class="invalid-feedback">
-                        請輸入數字
-                    </div>
+                    <input type="number" class="form-control" id="price" name="quantity">
                   </div>
             </div>
             <div class="modal-footer">
@@ -39,3 +33,14 @@
         </div>
     </div>
 </form>
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+

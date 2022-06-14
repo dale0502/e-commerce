@@ -14,5 +14,12 @@
                 <a class="nav-link" href="#">聯絡我們</a>
             </li>
         </ul>
+        
     </div>
+    <button class="btn btn-outline-dark flex-shrink-0" type="button">
+        <span>購物車</span>
+        <i class="bi-cart-fill me-1"></i>
+    </button>
+    
 </nav>
+
