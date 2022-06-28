@@ -68,8 +68,13 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-                <main>
+                <main>            
                     <div class="container-fluid px-4">
+                        <div class="mb-2 mt-2 d-flex flex-row-reverse">
+                            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal">
+                                新增產品
+                            </button>
+                        </div>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -114,5 +119,7 @@
         </div>
     </body>
 
-   @include('admin.create_modal')
+
+    
+    @include('admin.create_modal')
 @endsection
