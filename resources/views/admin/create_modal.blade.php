@@ -1,7 +1,7 @@
   <!-- Modal -->
   <form action="{{ route('store') }}" method="post">
     @csrf
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,18 +11,30 @@
                 <div class="form-group">
                     <label for="title">商品名稱</label>
                     <input type="text" class="form-control" id="title" name="title"> 
+                    @if($errors->has('title'))
+                        <div class="error">{{ $errors->first('title') }}</div>
+                    @endif
                   </div>
                   <div class="form-group">
                     <label for="content">商品描述</label>
                     <input type="text" class="form-control" id="content" name="content">
+                    @if($errors->has('content'))
+                      <div class="error">{{ $errors->first('content') }}</div>
+                    @endif
                   </div>
                   <div class="form-group ">
                     <label for="price">價格</label>
                     <input type="number" class="form-control" id="price" name="price">
+                    @if($errors->has('price'))
+                      <div class="error">{{ $errors->first('price') }}</div>
+                    @endif
                   </div>
                   <div class="form-group ">
-                    <label for="price">數量</label>
-                    <input type="number" class="form-control" id="price" name="quantity">
+                    <label for="quantity">數量</label>
+                    <input type="number" class="form-control" id="quantity" name="quantity">
+                    @if($errors->has('quantity'))
+                      <div class="error">{{ $errors->first('quantity') }}</div>
+                    @endif
                   </div>
             </div>
             <div class="modal-footer">
@@ -34,13 +46,4 @@
     </div>
 </form>
 
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
 

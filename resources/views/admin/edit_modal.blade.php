@@ -11,19 +11,19 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="title">商品名稱</label>
-                        <input type="text" class="form-control" id="title" name="title">
+                        <input type="text" class="form-control" id="edit-title" name="title">
                     </div>
                     <div class="form-group">
                         <label for="content">商品描述</label>
-                        <input type="text" class="form-control" id="content" name="content">
+                        <input type="text" class="form-control" id="edit-content" name="content">
                     </div>
                     <div class="form-group ">
                         <label for="price">價格</label>
-                        <input type="number" class="form-control" id="price" name="price">
+                        <input type="number" class="form-control" id="edit-price" name="price">
                     </div>
                     <div class="form-group ">
-                        <label for="price">數量</label>
-                        <input type="number" class="form-control" id="quantity" name="quantity">
+                        <label for="quantity">數量</label>
+                        <input type="number" class="form-control" id="edit-quantity" name="quantity">
                     </div>
                 </div>
                 <div class="modal-footer">

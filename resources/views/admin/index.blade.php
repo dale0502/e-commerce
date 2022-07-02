@@ -71,7 +71,7 @@
                 <main>            
                     <div class="container-fluid px-4">
                         <div class="mb-2 mt-2 d-flex flex-row-reverse">
-                            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal">
+                            <button class="btn btn-outline-dark" data-toggle="modal" data-target="#createModal">
                                 新增產品
                             </button>
                         </div>
@@ -98,7 +98,7 @@
                                             <td>{{  $product->content }}</td>
                                             <td>{{  $product->price }}</td>
                                             <td>{{  $product->quantity }}</td>
-                                            <td><a href="{{ route('edit', $product->id)}}" class="btn btn-outline-dark edit-btn" data-toggle="modal">edit</a></td>
+                                            <td><a href="{{ route('edit', $product->id)}}" class="btn btn-outline-dark edit-btn">編輯</a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -125,5 +125,10 @@
 @endsection
 
 @section('script')
+    <script type="text/javascript">
+        @error ('title')
+            $('#exampleModal').modal('show');
+        @enderror
+    </script>   
     <script src="{{ mix('/js/edit-modal.js') }}"></script>
 @endsection

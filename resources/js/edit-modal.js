@@ -13,10 +13,10 @@ $(document).ready(function () {
         })
         .done(function(response) {
             // console.log(response);
-            $("input[name='title']").val(response.title);
-            $("input[name='content']").val(response.content);
-            $("input[name='price']").val(response.price);
-            $("input[name='quantity']").val(response.quantity);
+            $("#edit-title").val(response.title);
+            $("#edit-content").val(response.content);
+            $("#edit-price").val(response.price);
+            $("#edit-quantity").val(response.quantity);
         });
 
     });
