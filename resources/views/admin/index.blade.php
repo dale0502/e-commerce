@@ -98,7 +98,7 @@
                                             <td>{{  $product->content }}</td>
                                             <td>{{  $product->price }}</td>
                                             <td>{{  $product->quantity }}</td>
-                                            <td><a href="{{ route('edit', $product->id)}}" class="btn btn-outline-dark edit-btn">編輯</a></td>
+                                            <td><a href="{{ route('admin::edit', $product->id)}}" class="btn btn-outline-dark edit-btn">編輯</a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>

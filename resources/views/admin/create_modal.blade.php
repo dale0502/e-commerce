@@ -1,5 +1,5 @@
   <!-- Modal -->
-  <form action="{{ route('store') }}" method="post">
+  <form action="{{ route('admin::store') }}" method="post">
     @csrf
     <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

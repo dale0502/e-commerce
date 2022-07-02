@@ -35,16 +35,32 @@ class ProductController extends Controller
         ]);
 
         $products->save();
-        return redirect()->route('admin.index');
+        return redirect()->route('admin::index');
     }
 
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        return json_decode($product);
+        return response($product); 
     }
 
-    public function update()
+    public function update(Request $request)
     {
+        $inputs = $request->all();
+        $product = Product::findOrFail($request->id);
+        $product->update([
+            'title' => $inputs['title'],
+            'content' => $inputs['content'],
+            'price' => $inputs['price'],
+            'quantity' => $inputs['quantity']
+        ]);
+
+        $product->save();
+        return redirect()->route('admin::index');
+    }
+
+    public function delete($id)
+    {
+        
     }
 }

@@ -14,6 +14,7 @@ $(document).ready(function () {
       dataType: 'json'
     }).done(function (response) {
       // console.log(response);
+      $("#edit-id").val(response.id);
       $("#edit-title").val(response.title);
       $("#edit-content").val(response.content);
       $("#edit-price").val(response.price);

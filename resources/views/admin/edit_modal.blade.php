@@ -1,10 +1,11 @@
 <!-- EditModal -->
-<form action="{{ route('update') }}" method="post">
+<form action="/admin/update" method="post">
     @csrf
-    @method('PATCH')
+    @method('PUT')
     <div class="modal fade" id="modal-global" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
+                <input type="hidden" name="id"  id="edit-id">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalCenterTitle">編輯商品</h5>
                 </div>

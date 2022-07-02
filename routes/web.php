@@ -19,8 +19,10 @@ Route::get('products/{id}', 'ProductController@show')->name('show');
 Route::get('/cart', 'ProductController@cart')->name('cart');
 
 //admin
-Route::get('/admin', 'Admin\ProductController@index')->name('admin.index');
-Route::get('/admin/create', 'Admin\ProductController@create')->name('create');
-Route::post('/admin', 'Admin\ProductController@store')->name('store');
-Route::get('/admin/edit/{id}', 'Admin\ProductController@edit')->name('edit');
-Route::put('/admin', 'Admin\ProductController@update')->name('update');
+Route::prefix('admin')->name('admin::')->group(function () {
+    Route::get('/', 'Admin\ProductController@index')->name('index');
+    Route::get('/create', 'Admin\ProductController@create')->name('create');
+    Route::post('/', 'Admin\ProductController@store')->name('store');
+    Route::get('/edit/{id}', 'Admin\ProductController@edit')->name('edit');
+    Route::put('/update', 'Admin\ProductController@update')->name('update');
+});
