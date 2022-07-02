@@ -17,8 +17,10 @@ class CreateProducts extends Migration
             $table->id();
             $table->string('title')->comment('商品名稱');
             $table->string('content')->comment('商品說明');
-            $table->integer('price')->comment('價格');
-            $table->integer('quantity')->comment('數量');
+            $table->string('image_url')->nullable()->comment('商品圖片');
+            $table->integer('price')->default(0)->comment('價格');
+            $table->integer('quantity')->default(0)->comment('數量');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -25,4 +25,5 @@ Route::prefix('admin')->name('admin::')->group(function () {
     Route::post('/', 'Admin\ProductController@store')->name('store');
     Route::get('/edit/{id}', 'Admin\ProductController@edit')->name('edit');
     Route::put('/update', 'Admin\ProductController@update')->name('update');
+    Route::get('/destroy/{id}', 'Admin\ProductController@destroy')->name('destroy');
 });

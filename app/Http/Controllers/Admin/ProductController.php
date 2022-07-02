@@ -59,8 +59,10 @@ class ProductController extends Controller
         return redirect()->route('admin::index');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
-        
+        $product = Product::findOrFail($id);
+        $product->delete();
+        return redirect()->route('admin::index');
     }
 }
