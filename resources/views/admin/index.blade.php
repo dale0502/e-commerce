@@ -98,8 +98,7 @@
                                             <td>{{  $product->content }}</td>
                                             <td>{{  $product->price }}</td>
                                             <td>{{  $product->quantity }}</td>
-                                            <td><a href="{{ route('edit', $product->id)}}">edit</a></td>
-                                            
+                                            <td><a href="{{ route('edit', $product->id)}}" class="btn btn-outline-dark edit-btn" data-toggle="modal">edit</a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -122,4 +121,9 @@
 
     
     @include('admin.create_modal')
+    @include('admin.edit_modal')
+@endsection
+
+@section('script')
+    <script src="{{ mix('/js/edit-modal.js') }}"></script>
 @endsection

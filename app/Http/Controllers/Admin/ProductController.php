@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('created_at' , 'DESC')->get();
+        $products = Product::orderBy('created_at', 'DESC')->get();
         return view('admin.index', ['products' => $products]);
     }
 
@@ -40,12 +40,11 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        return view('admin.edit_modal');
+        $product = Product::findOrFail($id);
+        return json_decode($product);
     }
 
     public function update()
     {
-       
     }
-
 }

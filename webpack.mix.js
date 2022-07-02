@@ -17,3 +17,4 @@ mix.js('resources/js/app.js', 'public/js')
     ]);
 
 mix.js('resources/js/cart.js', 'public/js');
+mix.js('resources/js/edit-modal.js', 'public/js');
