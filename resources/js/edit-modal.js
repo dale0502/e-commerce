@@ -26,5 +26,4 @@ $(document).ready(function () {
     $("#hide").click(function(){
         $('#modal-global').modal('hide')
     })
-    
 });

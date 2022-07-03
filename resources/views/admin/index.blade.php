@@ -94,6 +94,8 @@
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
+                                        <th>產品序號</th>
+                                        <th>產品圖片</th>
                                         <th>產品名稱</th>
                                         <th>產品描述</th>
                                         <th>價格</th>
@@ -104,13 +106,19 @@
                                 <tbody>
                                     @foreach ($products as $product)
                                         <tr>
+                                            <td>{{ $product->id}}</td>
+                                            <td><img src="{{ $product->image_url }}" alt=""  width="40" height="50"></td>
                                             <td>{{ $product->title }}</td>
                                             <td>{{ $product->content }}</td>
                                             <td>{{ $product->price }}</td>
                                             <td>{{ $product->quantity }}</td>
                                             <td>
-                                                <a href="{{ route('admin::edit', $product->id) }}" class="btn btn-outline-dark edit-btn"> <i class="fa-regular fa-pen-to-square"> </i></a>
-                                                <a href="{{ route('admin::destroy', $product->id) }}"class="btn btn-outline-dark"><i class="fa-regular fa-trash-can"></i></a>
+                                                <a href="{{ route('admin::edit', $product->id) }}"
+                                                    class="btn btn-outline-dark edit-btn"> <i
+                                                        class="fa-regular fa-pen-to-square"> </i></a>
+                                                <a
+                                                    href="{{ route('admin::destroy', $product->id) }}"class="btn btn-outline-dark"><i
+                                                        class="fa-regular fa-trash-can"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -140,7 +148,7 @@
 @section('script')
     <script type="text/javascript">
         @error('title')
-            $('#exampleModal').modal('show');
+            $('#createModal').modal('show');
         @enderror
     </script>
     <script src="{{ mix('/js/edit-modal.js') }}"></script>

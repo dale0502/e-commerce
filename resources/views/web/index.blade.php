@@ -9,14 +9,14 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->   
-                            <img class="card-img-top" with="450" height="350" src="{{ $product['imageUrl']  }}" alt="..." />                     
+                            <img class="card-img-top" width="450" height="350" src="{{ $product->image_url  }}" alt="..." />                     
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">123</h5>
+                                    <h5 class="fw-bolder">{{ $product->title }}</h5>
                                     <!-- Product price-->
-                                    <span>價格: 300</span>
+                                    <span>價格: {{ $product->price }}</span>
                                 </div>
                             </div>
                             <!-- Product actions-->
