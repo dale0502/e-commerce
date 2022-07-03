@@ -1,5 +1,5 @@
   <!-- Modal -->
-  <form action="{{ route('admin::store') }}" method="post">
+  <form action="{{ route('admin::store') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -35,6 +35,12 @@
                     @if($errors->has('quantity'))
                       <div class="error">{{ $errors->first('quantity') }}</div>
                     @endif
+                  </div>
+                  <div class="form-group">
+                    <label for="image" class="block text-sm leading-5 font-medium text-gray-700">
+                      圖片上傳
+                      <input type="file" name="image">
+                    </label>
                   </div>
             </div>
             <div class="modal-footer">

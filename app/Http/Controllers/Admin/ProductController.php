@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
+
 
 class ProductController extends Controller
 {
@@ -27,11 +29,32 @@ class ProductController extends Controller
     public function store(\App\Http\Requests\StoreProductRequest $request)
     {
         $inputs = $request->all();
+
+        // 檢查是否有圖片
+        if ($request->has('image')) {
+            $imageName = $request->file('image')->getClientOriginalName();
+            $imagePath = $request->file('image')->storeAs(
+                '',
+                $imageName,
+                'public'
+            );
+            $image = Image::make(public_path("storage/{$imagePath}"))->resize(400, 300, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $image->save(public_path("storage/{$imagePath}"), 60);
+            $image->save();
+
+            // 取得存入路徑
+            $url = \Storage::disk('public')->url($imagePath);
+            $inputs['image'] = $url;
+        }
+
         $products = Product::firstOrCreate([
             'title' => $inputs['title'],
             'content' => $inputs['content'],
             'price' => $inputs['price'],
-            'quantity' => $inputs['quantity']
+            'quantity' => $inputs['quantity'],
+            'image_url' => $inputs['image'],
         ]);
 
         $products->save();

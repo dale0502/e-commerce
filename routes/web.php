@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Intervention\Image\Facades\Image;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'ProductController@index');
+// Route::get('/', 'ProductController@index');
 Route::get('products/{id}', 'ProductController@show')->name('show');
 Route::get('/cart', 'ProductController@cart')->name('cart');
 
@@ -26,4 +27,14 @@ Route::prefix('admin')->name('admin::')->group(function () {
     Route::get('/edit/{id}', 'Admin\ProductController@edit')->name('edit');
     Route::put('/update', 'Admin\ProductController@update')->name('update');
     Route::get('/destroy/{id}', 'Admin\ProductController@destroy')->name('destroy');
+});
+
+
+
+
+// usage inside a laravel route
+Route::get('/', function()
+{
+    $img = Image::make('https://images.pexels.com/photos/4273439/pexels-photo-4273439.jpeg')->resize(300, 200); // 這邊可以隨便用網路上的image取代
+    return $img->response('jpg');
 });
