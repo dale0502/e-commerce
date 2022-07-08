@@ -30,31 +30,11 @@ class ProductController extends Controller
     {
         $inputs = $request->all();
 
-        // 檢查是否有圖片
-        if ($request->has('image')) {
-            $imageName = $request->file('image')->getClientOriginalName();
-            $imagePath = $request->file('image')->storeAs(
-                '',
-                $imageName,
-                'public'
-            );
-            $image = Image::make(public_path("storage/{$imagePath}"))->resize(400, 300, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            $image->save(public_path("storage/{$imagePath}"), 60);
-            $image->save();
-
-            // 取得存入路徑
-            $url = \Storage::disk('public')->url($imagePath);
-            $inputs['image'] = $url;
-        }
-
         $products = Product::firstOrCreate([
             'title' => $inputs['title'],
             'content' => $inputs['content'],
             'price' => $inputs['price'],
             'quantity' => $inputs['quantity'],
-            'image_url' => $inputs['image'],
         ]);
 
         $products->save();
@@ -87,5 +67,10 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
         return redirect()->route('admin::index');
+    }
+
+    public function uploadedImage()
+    {
+
     }
 }

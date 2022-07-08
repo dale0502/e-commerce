@@ -35,19 +35,7 @@
                     @if($errors->has('quantity'))
                       <div class="error">{{ $errors->first('quantity') }}</div>
                     @endif
-                  </div>
-                  <div class="form-group">
-                    <label for="image" class="block text-sm leading-5 font-medium text-gray-700" >
-                      圖片上傳
-                      <input type="file" name="image" data-traget="preview_image" accept="image/*" onchange="document.getElementById('preview_img').src = window.URL.createObjectURL(this.files[0])">
-                    </label>
-                    @if($errors->has('image'))
-                      <div class="error">{{ $errors->first('image') }}</div>
-                    @endif
-                  </div>
-                  <div class="text-center">
-                      <img id="preview_img" src="https://via.placeholder.com/400x300" alt="" width="300" height="400" >        
-                  </div>               
+                  </div>        
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
