@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2>商品列表</h2>
-    <section class="py-5">
+    <div class="text-center mt-4">
+        <h2 class="fw-bolder">商品列表</h2>
+    </div>
+    <section>
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 @foreach ($products as $product)

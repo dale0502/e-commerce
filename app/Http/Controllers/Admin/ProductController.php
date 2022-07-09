@@ -17,8 +17,13 @@ class ProductController extends Controller
      */
     public function index()
     {
+        return view('admin.dash_board');
+    }
+
+    public function getProductsList()
+    {
         $products = Product::orderBy('created_at', 'DESC')->get();
-        return view('admin.index', ['products' => $products]);
+        return view('admin.product_list', ['products' => $products]);
     }
 
     public function create()
@@ -98,6 +103,6 @@ class ProductController extends Controller
         $product->image_url = $inputs['image'];
         $product->save();
 
-        return response('success', 200); 
+        return response(true); 
     }
 }

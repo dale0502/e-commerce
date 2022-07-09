@@ -21,7 +21,8 @@ Route::get('/cart', 'ProductController@cart')->name('cart');
 
 //admin
 Route::prefix('admin')->name('admin::')->group(function () {
-    Route::get('/', 'Admin\ProductController@index')->name('index');
+    Route::get('/', 'Admin\ProductController@index')->name('dash-board');
+    Route::get('/products-list', 'Admin\ProductController@getProductsList')->name('products-list');
     Route::get('/create', 'Admin\ProductController@create')->name('create');
     Route::post('/', 'Admin\ProductController@store')->name('store');
     Route::get('/edit/{id}', 'Admin\ProductController@edit')->name('edit');
