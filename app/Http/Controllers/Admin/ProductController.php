@@ -69,8 +69,35 @@ class ProductController extends Controller
         return redirect()->route('admin::index');
     }
 
-    public function uploadedImage()
+    public function getUploadModal()
     {
+        return view('admin.upload_modal');
+    }
 
+    //儲存產品圖片
+    public function storeImages(Request $request, $id) 
+    {
+        $image = $request->all();
+        $imageName = $request->file('image')->getClientOriginalName();
+        $imagePath = $request->file('image')->storeAs(
+            '',
+            $imageName,
+            'public'
+        );
+        $image = Image::make(public_path("storage/{$imagePath}"))->resize(400, 300, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        $image->save(public_path("storage/{$imagePath}"), 60);
+        $image->save();
+
+        // 取得存入路徑
+        $url = \Storage::disk('public')->url($imagePath);
+        $inputs['image'] = $url;
+        
+        $product = Product::find($id);
+        $product->image_url = $inputs['image'];
+        $product->save();
+
+        return response('success', 200); 
     }
 }

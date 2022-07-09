@@ -117,8 +117,10 @@
                                                     class="btn btn-outline-dark edit-btn"> <i
                                                         class="fa-regular fa-pen-to-square"> </i></a>
                                                 <a
-                                                    href="{{ route('admin::destroy', $product->id) }}"class="btn btn-outline-dark"><i
-                                                        class="fa-regular fa-trash-can"></i></a>
+                                                    href="{{ route('admin::destroy', $product->id) }}" class="btn btn-outline-dark"><i
+                                                        class="fa-regular fa-trash-can"></i></a>  
+                                                <!-- 圖片上傳 -->
+                                                <a href="{{ route('admin::upload-modal', $product->id) }}" class="btn btn-outline-dark upload-btn" data-id="{{ $product->id }}"><i class="fa fa-upload"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -143,6 +145,7 @@
 
     @include('admin.create_modal')
     @include('admin.edit_modal')
+    @include('admin.upload_modal')
 @endsection
 
 @section('script')
@@ -152,4 +155,5 @@
         @enderror
     </script>
     <script src="{{ mix('/js/edit-modal.js') }}"></script>
+    <script src="{{ mix('/js/upload-image.js') }}"></script>
 @endsection

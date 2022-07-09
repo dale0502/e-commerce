@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"/>
         <link rel="stylesheet" href="css/admin_styles.css" />
         <link rel="stylesheet" href="css/app.css" />
+        @include('layouts.css')
     </head>
 
 <body>
@@ -28,6 +29,7 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
     @yield('script')
+    @include('layouts.js')
 </body>
 
 </html>

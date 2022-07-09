@@ -27,5 +27,9 @@ Route::prefix('admin')->name('admin::')->group(function () {
     Route::get('/edit/{id}', 'Admin\ProductController@edit')->name('edit');
     Route::put('/update', 'Admin\ProductController@update')->name('update');
     Route::get('/destroy/{id}', 'Admin\ProductController@destroy')->name('destroy');
+
+    //image
+    Route::get('/upload-modal/{id}', 'Admin\ProductController@getUploadModal')->name('upload-modal');
+    Route::post('/file-upload-batch/{id}', 'Admin\ProductController@storeImages')->name('upload-image');
 });
 
