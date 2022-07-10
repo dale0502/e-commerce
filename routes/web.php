@@ -34,3 +34,8 @@ Route::prefix('admin')->name('admin::')->group(function () {
     Route::post('/file-upload-batch/{id}', 'Admin\ProductController@storeImages')->name('upload-image');
 });
 
+// 會員註冊
+Route::get('/register-form', 'AuthController@getRegisterForm')->name('register-form');
+Route::get('/login-form', 'AuthController@getLoginForm')->name('login-form');
+Route::post('/register', 'AuthController@register')->name('register');
+Route::post('/login', 'AuthController@login')->name('login');

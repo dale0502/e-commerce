@@ -9,8 +9,14 @@ class ProductController extends Controller
 {
     public function index()
     {
+        $username = session('username');
+        $role = session('role');
         $products = Product::orderBy('created_at', 'DESC')->get();
-        return view('web.index', ['products' => $products]);
+        return view('web.index', [
+            'products' => $products,
+            'username' => $username,
+            'role' => $role
+        ]);
     }
 
     public function show($id)

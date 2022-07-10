@@ -43,7 +43,7 @@ class ProductController extends Controller
         ]);
 
         $products->save();
-        return redirect()->route('admin::index');
+        return redirect()->route('admin::products-list');
     }
 
     public function edit($id)

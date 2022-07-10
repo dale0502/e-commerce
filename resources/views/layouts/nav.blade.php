@@ -24,12 +24,19 @@
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button>
             </form>
+            <div class="nav-link"> 
+                @auth
+                    {{ $username }}
+                    <span class="pl-1"><a href="#">登出</a></span>
+                @endauth
+            </div>
             <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa-solid fa-user"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="#">login</a>
+                    <a class="dropdown-item" href="{{ route('register-form')}}">register</a>
+                    <a class="dropdown-item" href="{{ route('login-form')}}" >login</a>
                 </div>
               </div>
         </div>
